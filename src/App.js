@@ -1,16 +1,14 @@
 import { BrowserRouter as Router, NavLink, Routes, Route, Switch, useHistory, Link } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
 import { useEffect } from 'react';
+import { createBrowserHistory } from 'history';
 import { HomeTemplate } from './template/HomeTemplate/HomeTemplate';
-import LoadingCoponent from './GlobalSetting/LoadingComponent/LoadingComponent';
-import { UserLoginTemplate } from './template/UserLoginTemplate';
-import LoginCyberBugs from './CyberBugs/LoginCyberBugs/LoginCyberBugs';
-import Contacts from './pages/Contact/Contacts';
-import Abouts from './pages/About/Abouts';
-import Home from './pages/Home/Home'
+import {UserTemlate} from './template/UserTemplate/UserTemplate'
+import Login from './pages/Login/Login';
+
+export const history = createBrowserHistory();
 function App() {
   const history = useHistory();
   const dispatch = useDispatch();
@@ -19,13 +17,11 @@ function App() {
   }, [])
   return (
     <div>
-      <LoadingCoponent/> 
-      <Switch>
-        <HomeTemplate exact path="/home" Component={Home} />
-        <HomeTemplate exact path="/contact" Component={Contacts} />
-        <HomeTemplate exact path="/about" Component={Abouts} />
-        <UserLoginTemplate exact="/login" Component={LoginCyberBugs}  />
-      </Switch>
+      <Router history= {history}>
+        <Switch>
+          <HomeTemplate path ="/home"  Component={Login}/>
+        </Switch>
+      </Router>
     </div>
   )
 }
