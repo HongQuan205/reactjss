@@ -24,7 +24,7 @@ const stateDefault = {
             return {...state}
          
         default:
-            break;
+            return {...state}
     }
 }
 export default UserManagerReducer;

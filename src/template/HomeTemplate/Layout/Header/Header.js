@@ -13,7 +13,7 @@ import { TOKEN, USER_LOGIN } from '../../../../util/settings/config'
 const { Option } = Select
 
 export default function Header(props) {
-    const { userLogin } = useSelector(state => state.UserManagerReducer)
+    const  userLogin  = useSelector(state => state.UserManagerReducer)
     const { t, i18n } = useTranslation();
 
     const handleChange = (value) => {
@@ -52,6 +52,7 @@ export default function Header(props) {
         </Fragment>
     }
     return (
+     
         <header className="p-4 bg-coolGray-100 text-coolGray-800 bg-opacity-40 bg-black text-white fixed w-full z-10">
             <div className='container flex justify-between h-16 mx-auto'>
                 <NavLink to="/" aria-label="Back to homepage" className="flex items-center p-2">

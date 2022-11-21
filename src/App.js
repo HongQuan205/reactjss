@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Switch, useHistory } from 'react-router-dom';
+import { BrowserRouter, Switch, useHistory } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { useEffect } from 'react';
 import { createBrowserHistory } from 'history';
@@ -15,11 +15,11 @@ function App() {
   }, [])
   return (
     <div>
-      <Router history= {history}>
+      <BrowserRouter history= {history}>
         <Switch>
-          <HomeTemplate path ="/home"  Component={Login}/>
+          <HomeTemplate path ="/login"  Component={Login}/>
         </Switch>
-      </Router>
+      </BrowserRouter>
     </div>
   )
 }

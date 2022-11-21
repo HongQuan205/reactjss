@@ -1,13 +1,14 @@
-import React from 'react';
 import ReactDOM from 'react-dom';
-import App from './App';
+import React from 'react';
 import reportWebVitals from './reportWebVitals';
-import { Provider } from 'react-redux'
+import {Provider} from 'react-redux'
+import App from './App'
 import store from './redux/configStore'
-import Login from './pages/Login/Login';
 ReactDOM.render(
-    <div>Quan DH</div>,
-    document.getElementById('root')
+ <Provider store={store}>
+    <App/>
+ </Provider>
+,document.getElementById('root')
 )
 
 reportWebVitals();
