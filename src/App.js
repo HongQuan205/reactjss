@@ -1,7 +1,5 @@
-import { BrowserRouter as Router, NavLink, Routes, Route, Switch, useHistory, Link } from 'react-router-dom';
+import { BrowserRouter as Router, Switch, useHistory } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
-import { Component } from 'react';
-import './App.css';
 import { useEffect } from 'react';
 import { createBrowserHistory } from 'history';
 import { HomeTemplate } from './template/HomeTemplate/HomeTemplate';
