@@ -1,5 +1,5 @@
 import {TOKEN, USER_LOGIN} from '../../util/settings/config'
-import {LOGIN_ACTION, SET_USER_INFORMATION} from '../actions/type/UserManagerType'
+import {LOGIN_ACTION, SET_USER_INFORMATION} from '../actions/types/UserManagerType'
 
 
 let user ={}
@@ -13,8 +13,9 @@ const stateDefault = {
 }
 
  const UserManagerReducer = (state= stateDefault,action) =>{
-    switch (action.key) {
+    switch (action.type) {
         case LOGIN_ACTION:
+            console.log("reducer",action)
             const {user_infor} = action;
             localStorage.setItem(USER_LOGIN,JSON.stringify(user_infor));
             localStorage.setItem(TOKEN,user_infor.accessToken);

@@ -3,7 +3,7 @@ import { useDispatch } from 'react-redux';
 import { useEffect } from 'react';
 import { createBrowserHistory } from 'history';
 import { HomeTemplate } from './template/HomeTemplate/HomeTemplate';
-import {UserTemlate} from './template/UserTemplate/UserTemplate'
+import {UserTemplate} from './template/UserTemplate/UserTemplate'
 import Login from './pages/Login/Login';
 
 export const history = createBrowserHistory();
@@ -17,7 +17,8 @@ function App() {
     <div>
       <BrowserRouter history= {history}>
         <Switch>
-          <HomeTemplate path ="/login"  Component={Login}/>
+          <HomeTemplate path="/home" />
+          <UserTemplate path ="/login"  Component={Login}/>
         </Switch>
       </BrowserRouter>
     </div>

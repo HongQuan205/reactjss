@@ -3,23 +3,22 @@ import { useDispatch, useSelector } from 'react-redux'
 import UserManageReducer from '../../redux/reducers/UserManagerReducer'
 import { NavLink } from 'react-router-dom';
 import { useFormik } from 'formik';
-import {LoginAction} from '../../redux/actions/UserManagerAction'
+import { LoginAction } from '../../redux/actions/UserManagerAction'
 export default function Login() {
 
     const dispatch = useDispatch();
-    const userLogin = useSelector(state => state.UserManageReducer)
 
-    
+
+
     const formik = useFormik({
         initialValues: {
             taiKhoan: '',
             matKhau: '',
         },
         onSubmit: values => {
-
-            const action = (values);
+            const action = LoginAction(values);
+            console.log("Quan", action)
             dispatch(action);
-
             console.log('values', values);
         },
     });
@@ -41,8 +40,7 @@ export default function Login() {
                 </div>
             </div>
             <div className="mt-10 px-12 sm:px-24 md:px-48 lg:px-12 lg:mt-16 xl:px-24 xl:max-w-2xl">
-                <h2 className="text-center text-4xl text-indigo-900 font-display font-semibold lg:text-left xl:text-5xl
-  xl:text-bold">Đăng nhập</h2>
+                <h2 className="text-center text-4xl text-indigo-900 font-display font-semibold lg:text-left xl:text-5xlxl:text-bold">Đăng nhập</h2>
                 <div className="mt-12">
                     <div>
                         <div>

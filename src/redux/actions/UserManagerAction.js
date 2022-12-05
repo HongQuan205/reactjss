@@ -1,5 +1,6 @@
 import { userManageService } from "../../services/UserManagerService"
 import {history} from '../../App'
+import {LOGIN_ACTION} from './types/UserManagerType'
 
 
 export const LoginAction = (user_login) =>{
@@ -7,11 +8,10 @@ export const LoginAction = (user_login) =>{
     return async (dispatch) =>{
         try {
             const result = await userManageService.login(user_login)
-
-            if(result.data.code === 200)
+            if(result.data.statusCode === 200)
             {
                 dispatch({
-                    type: LoginAction,
+                    type: LOGIN_ACTION,
                     user_infor: result.data.content
                 })
 

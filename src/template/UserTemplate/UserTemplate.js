@@ -7,7 +7,7 @@ export const UserTemplate = (props) => {
     const { Component, ...restProps } = props;
 
     return <Route {...restProps} render={(propsRoute) => {
-        <div className="lg:flex">
+        return  <div className="lg:flex">
             <Component {...propsRoute} />
             <div className="hidden lg:flex items-center justify-center bg-indigo-100 flex-1 h-screen">
                 <div className="max-w-xs transform duration-200 hover:scale-110 cursor-pointer">
@@ -46,10 +46,6 @@ export const UserTemplate = (props) => {
                 </div>
             </div>
         </div>
-
-
-
     }}>
-
     </Route>
 }
