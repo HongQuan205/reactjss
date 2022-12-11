@@ -5,6 +5,7 @@ import { createBrowserHistory } from 'history';
 import { HomeTemplate } from './template/HomeTemplate/HomeTemplate';
 import {UserTemplate} from './template/UserTemplate/UserTemplate'
 import Login from './pages/Login/Login';
+import Home from './pages/Home/Home';
 
 export const history = createBrowserHistory();
 function App() {
@@ -17,7 +18,7 @@ function App() {
     <div>
       <BrowserRouter history= {history}>
         <Switch>
-          <HomeTemplate path="/home" />
+          <HomeTemplate path="/home" Component={Home}/>
           <UserTemplate path ="/login"  Component={Login}/>
         </Switch>
       </BrowserRouter>

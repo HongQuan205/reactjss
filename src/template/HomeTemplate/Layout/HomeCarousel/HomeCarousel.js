@@ -1,9 +1,8 @@
 import React, {useEffect} from "react";
 import {Carousel} from 'antd';
 import { useSelector,useDispatch } from "react-redux";
-
-import axios from "axios";
-import '.HomeCarousel.css'
+import {getCarouselAction} from '../../../../redux/actions/CarouselAction'
+import './HomeCarousel.css'
 
 const stylePayload = {
     height: '600px',
@@ -21,6 +20,22 @@ export default function HomeCarousel(props) {
     const dispatch = useDispatch();
 
     useEffect(() =>{
-        dispatch()
+        dispatch(getCarouselAction())
     })
+
+    const renderImg = (arrImg) =>{
+        return arrImg.map((item, index) =>{
+            return <div key={index}>
+                <div style={{...stylePayload, backgroundImage : `url(${item.hinhAnh})`}}>
+                    <img src={item.hinhAnh} alt={item.hinhAnh} />
+                </div>
+            </div>
+        })
+    }
+
+    return(
+        <Carousel effect="fade" style={{width:'100%',padding:0,margin:0}} >
+            {renderImg(arrImg)}
+        </Carousel>
+    )
 }
